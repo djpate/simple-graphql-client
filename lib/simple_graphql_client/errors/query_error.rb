@@ -12,9 +12,7 @@ module SimpleGraphqlClient
 
       def message
         str = "#{errors.count} error(s) found in your query: "
-        str + errors.map do |error|
-          error["message"]
-        end.join(', \n')
+        str + errors.map(&:message).join(', \n')
       end
     end
   end

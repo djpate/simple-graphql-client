@@ -15,7 +15,7 @@ module SimpleGraphqlClient
         query: gql,
         variables: variables
       }.to_json, request_options)
-      handle_response(JSON.parse(response.body))
+      handle_response(JSON.parse(response.body, object_class: OpenStruct))
     end
 
     private
@@ -27,9 +27,9 @@ module SimpleGraphqlClient
     end
 
     def handle_response(body)
-      raise SimpleGraphqlClient::Errors::QueryError, body["errors"] if body.key?("errors")
+      raise SimpleGraphqlClient::Errors::QueryError, body.errors if body.errors
 
-      body["data"]
+      body.data
     end
   end
 end
