@@ -3,7 +3,7 @@
 require "rest_client"
 require "json"
 
-module Gqlclient
+module SimpleGraphqlClient
   class Client
     def initialize(url:, &block)
       @url = url
@@ -27,7 +27,7 @@ module Gqlclient
     end
 
     def handle_response(body)
-      raise Gqlclient::Errors::QueryError, body["errors"] if body.key?("errors")
+      raise SimpleGraphqlClient::Errors::QueryError, body["errors"] if body.key?("errors")
 
       body["data"]
     end

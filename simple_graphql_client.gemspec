@@ -1,24 +1,22 @@
 # frozen_string_literal: true
 
-require_relative "lib/gqlclient/version"
+require_relative "lib/simple_graphql_client/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "gqlclient"
-  spec.version       = Gqlclient::VERSION
+  spec.name          = "simple_graphql_client"
+  spec.version       = SimpleGraphqlClient::VERSION
   spec.authors       = ["Christophe Verbinnen"]
   spec.email         = ["christophev@knowbe4.com"]
 
   spec.summary       = "Dead simple GQL client"
   spec.description   = "does the bare minimum"
-  spec.homepage      = "https://github.com/djpate/gql-client"
+  spec.homepage      = "https://github.com/djpate/simple-graphql-client"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/djpate/gql-client"
-  spec.metadata["changelog_uri"] = "https://github.com/djpate/gql-client/changelog.md"
+  spec.metadata["source_code_uri"] = "https://github.com/djpate/simple-graphql-client"
+  spec.metadata["changelog_uri"] = "https://github.com/djpate/simple-graphql-client/changelog.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
