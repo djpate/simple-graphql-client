@@ -22,7 +22,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Basic usage
+
+```
+client = Gqlclient::Client.new(url: 'https://api.spacex.land/graphql')
+client.query(gql: %{
+query {
+  launchesPast(limit: 10) {
+    mission_name
+    launch_date_local
+    launch_site {
+      site_name_long
+    }
+  }
+}
+})
+=> {"launchesPast"=>[{"mission_name"=>"Starlink-15 (v1.0)",....
+```
+
+### With custom headers
+```
+client = Gqlclient::Client.new(url: 'https://api.spacex.land/graphql') do 
+  {authorization: "bearer foobar"}
+  # can be any supported rest_client options
+end
+```
 
 ## Development
 
