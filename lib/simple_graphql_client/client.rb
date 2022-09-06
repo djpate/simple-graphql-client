@@ -5,9 +5,12 @@ require "json"
 
 module SimpleGraphqlClient
   class Client
-    def initialize(url:, &block)
+    attr_reader :options
+
+    def initialize(url:, options: {}, &block)
       @url = url
-      @options = block
+      @options = options
+      @request_options = block
     end
 
     def query(gql:, variables: {})
@@ -15,14 +18,14 @@ module SimpleGraphqlClient
         query: gql,
         variables: variables
       }.to_json, request_options)
-      handle_response(JSON.parse(response.body, object_class: OpenStruct))
+      handle_response(JSON.parse(response.body, object_class: options.fetch(:parsing_class, OpenStruct)))
     end
 
     private
 
     def request_options
       base_options = { content_type: :json }
-      options = @options ? @options.call : {}
+      options = @request_options ? @request_options.call : {}
       base_options.merge(options)
     end
 

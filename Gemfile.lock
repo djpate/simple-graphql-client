@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    simple_graphql_client (0.2.0)
+    simple_graphql_client (0.3.0)
       rest-client (~> 2.1)
 
 GEM
@@ -61,6 +61,7 @@ GEM
     unicode-display_width (1.7.0)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES
