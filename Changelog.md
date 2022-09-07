@@ -1,3 +1,9 @@
+0.3.2 - 09/06/2022
+Switch to hashie for responses, created a response class
+
+0.3.1 - 09/06/2022
+fix handling
+
 0.3.0 - 09/06/2022
 Allow specifying the parsing class
 
